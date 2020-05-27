@@ -1,13 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 1590593748480,
-      "title": "test",
-      "synced": "true",
-      "updated": "false",
-      "done": "false",
-      "deleted": "false",
-      "date": 1590593748480
-    }
-  ]
+  "todos": []
 }

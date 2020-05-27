@@ -8,6 +8,7 @@ export default class Home {
     this.page = page;
     this.properties = {
       todo: '',
+      desc:'',
       todos: []
     };
 
@@ -48,8 +49,17 @@ export default class Home {
                 @input="${e => this.properties.todo = e.target.value}"
                 class="py-3 px-4 rounded-sm w-full h-full"
                 type="text"
-                placeholder="Enter a new todo ..."
+                placeholder="Enter a new Title ..."
                 name="todo">
+
+                <input
+                autocomplete="off"
+                .value="${this.properties.desc}"
+                @input="${e => this.properties.desc = e.target.value}"
+                class="py-3 px-4 rounded-sm w-full h-full"
+                type="text"
+                placeholder="Enter a new Desc ..."
+                name="desc">
             </label>
             <button
               aria-label="Add"
@@ -79,12 +89,17 @@ export default class Home {
     const todo = {
       id: Date.now(),
       title: this.properties.todo,
+      description: this.properties.desc,
+      state: "true",
       synced: 'true',
       updated: 'false',
       done: 'false',
       deleted: 'false',
       date: Date.now()
     };
+
+    console.log(this.properties.todo);
+    console.log(this.properties.desc);
 
     const event = new CustomEvent('create-todo', { detail: todo });
     document.dispatchEvent(event);
