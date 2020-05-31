@@ -11,16 +11,15 @@ document.addEventListener('connection-changed', e => {
   }
 });
 
-console.log(checkConnectivity);
-
 const app  = document.querySelector('#app .outlet');
 
 fetch('/config.json')
   .then((result) => result.json())
   .then(async (config) => {
-    console.log('[todo] Config loaded !!!');
+    console.log('Config OK');
     window.config = config;
 
+    // Home
     page('/', async () => {
       const module = await import('./views/home.js');
       const Home = module.default;
@@ -82,6 +81,7 @@ fetch('/config.json')
       });
     });
 
+    // Welcome Start Page
     page('/start', async () =>{
       const module = await import('./views/start');
       const Start = module.default;
@@ -94,9 +94,10 @@ fetch('/config.json')
       console.log("Start Page Load")
     });
 
-    // page('*', function(){
-    //   console.log("Not Found")
-    // });
+    // 404 Page
+    page('*', function(){
+      console.log("Not Found")
+    });
 
     page();
   });

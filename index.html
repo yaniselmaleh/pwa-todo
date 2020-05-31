@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My awesome todo 🚀</title>
+  <title>Ma Todo App 🤘🏻</title>
   <meta name="description" content="My awesome todo 🚀">
   <base href="/" data-base="My awesome todo 🚀">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -61,7 +61,7 @@
 </head>
 <body class="bg-gray-100">
   <header class="sticky inset-0 top-0 h-12 font-bold text-xl bg-heraku text-white flex justify-center items-center z-10 shadow-sm">
-    <a href="/" class="block">My awesome todo 🚀</a>
+    <h1>My Todo App 🤘🏻</h1>
   </header>
   <section id="app" class="">
     <section class="skeleton absolute inset-0 flex justify-center items-center"><div class="loader"></div></section>
@@ -70,6 +70,27 @@
       <div class="h-full2" page="Start"></div>
       <div class="h-full" page="Edit"></div>
     </main>
+    <footer class="absolute bottom-0 w-full">
+      <div class="flex items-center h-16">
+        <div class="flex-1 text-gray-700 text-center bg-white px-4 py-2 m-2 rounded-full w-16 flex items-center justify-center">
+          <a href="/start" title="Accueil" target="_self">
+            <img src="assets/img/icon-home.svg" alt="Accueil" />
+          </a>
+        </div>
+
+        <div class="flex-1 text-gray-700 text-center bg-white px-4 py-2 m-2 rounded-full w-16 flex items-center justify-center">
+          <a href="/" title="Todo" target="_self">
+            <img src="assets/img/icon-plus-circle.svg" alt="Ajouter une tâche" />
+          </a>
+        </div>
+
+        <div class="flex-1 text-gray-700 text-center bg-white px-4 py-2 m-2 rounded-full w-16 flex items-center justify-center">
+          <a href="/" title="Todo" target="_self">
+            <img src="assets/img/icon-edit.svg" alt="Modifier une tâche" />
+          </a>
+        </div>
+      </div>
+    </footer>
   </section>
   <script type="module" src="./src/app.js"></script>
 </body>

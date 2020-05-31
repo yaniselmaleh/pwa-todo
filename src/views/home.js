@@ -12,6 +12,7 @@ export default class Home {
       todos: []
     };
 
+    
     this.renderView();
   }
 
@@ -22,6 +23,8 @@ export default class Home {
   get todos() {
     return this.properties.todos;
   }
+
+  
 
   template() {
     return html`
