@@ -28,7 +28,7 @@ export default class Home {
       <section class="h-full">
         <div ?hidden="${!this.todos.length}">
           <header>
-            <h1 class="mt-2 px-4 text-xl">My awesome todos : </h1>
+            <h1 class="mt-2 px-4 text-xl">Votre Todo : </h1>
           </header>
           <main class="todolist px-4 pb-20">
             <ul>
@@ -40,33 +40,36 @@ export default class Home {
           <img class="object-contain px-20" src="./assets/img/nodata.svg" alt="No data">
           <p class="mt-4 text-center text-xl">No todos yet, try to create a new one</p>
         </div>
-        <footer class="h-16 bg-gray-300 fixed bottom-0 inset-x-0">
-          <form @submit="${this.handleForm.bind(this)}" id="addTodo" class="w-full h-full flex justify-between items-center px-4 py-3">
-            <label class="flex-1" aria-label="Add todo input">
-              <input
-                autocomplete="off"
-                .value="${this.properties.todo}"
-                @input="${e => this.properties.todo = e.target.value}"
-                class="py-3 px-4 rounded-sm w-full h-full"
-                type="text"
-                placeholder="Enter a new Title ..."
-                name="todo">
-
+          <form @submit="${this.handleForm.bind(this)}" id="addTodo form-todo-y" class="w-full h-full flex justify-between items-center px-4 py-3">
+              <label class="flex-1" aria-label="Add todo input">Titre</label>
                 <input
-                autocomplete="off"
-                .value="${this.properties.desc}"
-                @input="${e => this.properties.desc = e.target.value}"
-                class="py-3 px-4 rounded-sm w-full h-full"
-                type="text"
-                placeholder="Enter a new Desc ..."
-                name="desc">
-            </label>
+                  autocomplete="off"
+                  .value="${this.properties.todo}"
+                  @input="${e => this.properties.todo = e.target.value}"
+                  class="py-3 px-4 rounded-sm w-full h-full"
+                  type="text"
+                  placeholder="Enter a new Title ..."
+                  name="todo"
+                />
+            <br>
+              <label class="flex-1 yanis" aria-label="Add todo input">Description</label>
+                <input
+                  autocomplete="off"
+                  .value="${this.properties.desc}"
+                  @input="${e => this.properties.desc = e.target.value}"
+                  class="py-3 px-4 rounded-sm w-full h-full"
+                  type="text"
+                  placeholder="Enter a new Desc ..."
+                  name="desc"
+                />
+                             
             <button
               aria-label="Add"
-              class="ml-4 rounded-lg text-uppercase bg-heraku h-full text-center px-3 uppercase text-white font-bold flex justify-center items-center"
-              type="submit">Add<lit-icon class="ml-2" icon="send"></lit-icon></button>
+              class="ml-4 rounded-lg text-uppercase bg-heraku h-full text-center uppercase text-white font-bold flex justify-center items-center"
+              type="submit">Ajouter<lit-icon class="ml-2" icon="send"></lit-icon>
+            </button>
+            
           </form>  
-        </footer>
       </section>
       <lit-iconset>
         <svg><defs>

@@ -29,6 +29,22 @@ export function fetchTodo() {
   })
 }
 
+// export function fetchTodo(id) {
+//   const config = window.config;
+
+//   return fetch(`${config.api}/todos/${id}`, {
+//     method: 'GET',
+//     headers: {
+//       'Content-type': 'application/json'
+//     }
+//   })
+//   .then(result => result.json())
+//   .catch(error => {
+//     console.error(error);
+//     return false;
+//   })
+// }
+
 export function createTodo(data) {
   const config = window.config;
   return fetch(`${config.api}/todos`, {
