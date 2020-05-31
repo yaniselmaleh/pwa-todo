@@ -41,8 +41,8 @@ export default class Home {
           <p class="mt-4 text-center text-xl">No todos yet, try to create a new one</p>
         </div>
           <form @submit="${this.handleForm.bind(this)}" id="addTodo form-todo-y" class="w-full h-full flex justify-between items-center px-4 py-3">
-                <div class="flex flex-wrap -mx-3 mb-6">
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div class="flex flex-wrap -mx-3">
+                  <div class="w-full md:w-1/2 px-3 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Titre
                     </label>
@@ -57,7 +57,7 @@ export default class Home {
                     >
                   </div>
 
-                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <div class="w-full md:w-1/2 px-3 md:mb-0">
                     <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
                       Description
                     </label>
@@ -75,10 +75,9 @@ export default class Home {
                              
             <button
               aria-label="Add"
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
               type="submit">
               Ajouter
-              <lit-icon class="ml-2" icon="send"></lit-icon>
             </button>
             
           </form>  
