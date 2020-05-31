@@ -34,10 +34,10 @@ class TodoCard  extends LitElement {
           display: block;
         }
       </style> 
-      <section class="toto-card mt-4 px-4 py-3 bg-gray-300 rounded-lg flex items-center shadow-sm">
+      <section class="toto-card mt-4 px-4 py-3 bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white rounded-lg flex items-center shadow-sm">
         <main class="flex-1 ml-2 truncate">
-          <a class="block font-bold text-gray-900 truncate" href="${`/todos/${this.todo.id}`}">${this.todo.title}</a>
-          <a class="block font-bold text-gray-900 truncate" href="${`/todos/${this.todo.id}`}">${this.todo.description}</a>
+          <a class="block font-bold text-gray-700 text-xl font-bold truncate" href="${`/todos/${this.todo.id}`}">${this.todo.title}</a>
+          <a class="block font-bold bg-gray-200 text-gray-500 mt-2 truncate" href="${`/todos/${this.todo.id}`}">${this.todo.description}</a>
         </main>
         ${this.todo.synced === 'false' ? html`<lit-icon icon="cloud-off"></lit-icon>` : '' }
         <button @click="${this.deleteItem}" class="ml-2 text-red-600" aria-label="Delete">

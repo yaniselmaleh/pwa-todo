@@ -30,18 +30,15 @@ export default class Home {
     return html`
       <section class="h-full">
         <div ?hidden="${!this.todos.length}">
-          <header>
-            <h1 class="mt-2 px-4 text-xl">Votre Todo : </h1>
-          </header>
           <main class="todolist px-4 pb-20">
             <ul>
               ${this.todos.map(todo => html`<todo-card .todo="${todo}"></todo-card>`)}
             </ul>
           </main>
         </div>
-        <div class="mt-8" ?hidden="${!!this.todos.length}">
+        <div class="mt-20" ?hidden="${!!this.todos.length}">
           <img class="object-contain px-20" src="./assets/img/nodata.svg" alt="No data">
-          <p class="mt-4 text-center text-xl">No todos yet, try to create a new one</p>
+          <p class="mt-4 text-center text-xl">Aucune Todo crée pour le moment</p> <br><br>
         </div>
           <form @submit="${this.handleForm.bind(this)}" id="addTodo form-todo-y" class="w-full h-full flex justify-between items-center px-4 py-3">
                 <div class="flex flex-wrap -mx-3">
