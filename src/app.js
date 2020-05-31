@@ -11,6 +11,8 @@ document.addEventListener('connection-changed', e => {
   }
 });
 
+console.log(checkConnectivity);
+
 const app  = document.querySelector('#app .outlet');
 
 fetch('/config.json')
@@ -27,6 +29,7 @@ fetch('/config.json')
       const homeView = new Home(ctn);
 
       let todos = [];
+      
       if (!document.offline && navigator.onLine) {
         const data = await fetchTodos();
         todos = await setTodos(data);
@@ -62,6 +65,7 @@ fetch('/config.json')
         }
       });
 
+      // Delete Todo
       document.addEventListener('delete-todo', async ({ detail }) => {
         if (!document.offline && navigator.onLine === true) {
           const result = await deleteTodo(detail.id);
@@ -77,6 +81,22 @@ fetch('/config.json')
         }
       });
     });
+
+    page('/start', async () =>{
+      const module = await import('./views/start');
+      const Start = module.default;
+
+      const ctn = app.querySelector('[page="Start"]');
+      const startView = new Start(ctn);
+
+      startView.renderView();
+      displayPage('Start');
+      console.log("Start Page Load")
+    });
+
+    // page('*', function(){
+    //   console.log("Not Found")
+    // });
 
     page();
   });
