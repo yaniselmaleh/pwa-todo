@@ -41,36 +41,49 @@ export default class Home {
           <p class="mt-4 text-center text-xl">No todos yet, try to create a new one</p>
         </div>
           <form @submit="${this.handleForm.bind(this)}" id="addTodo form-todo-y" class="w-full h-full flex justify-between items-center px-4 py-3">
-              <label class="flex-1" aria-label="Add todo input">Titre</label>
-                <input
-                  autocomplete="off"
-                  .value="${this.properties.todo}"
-                  @input="${e => this.properties.todo = e.target.value}"
-                  class="py-3 px-4 rounded-sm w-full h-full"
-                  type="text"
-                  placeholder="Enter a new Title ..."
-                  name="todo"
-                />
-            <br>
-              <label class="flex-1 yanis" aria-label="Add todo input">Description</label>
-                <input
-                  autocomplete="off"
-                  .value="${this.properties.desc}"
-                  @input="${e => this.properties.desc = e.target.value}"
-                  class="py-3 px-4 rounded-sm w-full h-full"
-                  type="text"
-                  placeholder="Enter a new Desc ..."
-                  name="desc"
-                />
+                <div class="flex flex-wrap -mx-3 mb-6">
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                      Titre
+                    </label>
+                    <input 
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                      id="grid-first-name" 
+                      type="text" 
+                      placeholder="mon super titre"
+                      autocomplete="off"
+                      .value="${this.properties.todo}"
+                      @input="${e => this.properties.todo = e.target.value}"
+                    >
+                  </div>
+
+                  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                      Description
+                    </label>
+                    <input 
+                      class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
+                      id="grid-first-name" 
+                      type="text" 
+                      placeholder="ma super description"
+                      autocomplete="off"
+                      .value="${this.properties.desc}"
+                      @input="${e => this.properties.desc = e.target.value}"
+                    >
+                  </div>
+              </div>
                              
             <button
               aria-label="Add"
-              class="ml-4 rounded-lg text-uppercase bg-heraku h-full text-center uppercase text-white font-bold flex justify-center items-center"
-              type="submit">Ajouter<lit-icon class="ml-2" icon="send"></lit-icon>
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+              type="submit">
+              Ajouter
+              <lit-icon class="ml-2" icon="send"></lit-icon>
             </button>
             
           </form>  
       </section>
+
       <lit-iconset>
         <svg><defs>
           <g id="delete"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path></g>
