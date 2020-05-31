@@ -1,18 +1,21 @@
-import { render, html } from 'lit-html';
+import {
+  render,
+  html
+} from 'lit-html';
 import '../component/todo-card.js';
 import 'lit-icon';
 
 
-export default class Home {
+export default class Home {
   constructor(page) {
     this.page = page;
     this.properties = {
       todo: '',
-      desc:'',
+      desc: '',
       todos: []
     };
 
-    
+
     this.renderView();
   }
 
@@ -24,10 +27,10 @@ export default class Home {
     return this.properties.todos;
   }
 
-  
+
 
   template() {
-    return html`
+    return html `
       <section class="h-full">
         <div ?hidden="${!this.todos.length}">
           <main class="todolist px-4 pb-20">
@@ -116,7 +119,9 @@ export default class Home {
     console.log(this.properties.todo);
     console.log(this.properties.desc);
 
-    const event = new CustomEvent('create-todo', { detail: todo });
+    const event = new CustomEvent('create-todo', {
+      detail: todo
+    });
     document.dispatchEvent(event);
 
     // Clearing input

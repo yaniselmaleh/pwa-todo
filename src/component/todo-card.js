@@ -1,6 +1,9 @@
-import { LitElement, html } from 'lit-element';
+import {
+  LitElement,
+  html
+} from 'lit-element';
 
-class TodoCard  extends LitElement {
+class TodoCard extends LitElement {
   createRenderRoot() {
     return this;
   }
@@ -17,18 +20,22 @@ class TodoCard  extends LitElement {
   }
 
   deleteItem() {
-    const event = new CustomEvent('delete-todo', { detail: this.todo });
+    const event = new CustomEvent('delete-todo', {
+      detail: this.todo
+    });
     document.dispatchEvent(event);
   }
 
-  updateItem() {
-    this.todo.done = this.todo.done === 'true'  ? 'false' : 'true';
-    const event = new CustomEvent('update-todo', { detail: this.todo });
+  updateItem() {
+    this.todo.done = this.todo.done === 'true' ? 'false' : 'true';
+    const event = new CustomEvent('update-todo', {
+      detail: this.todo
+    });
     document.dispatchEvent(event);
   }
 
   render() {
-    return html`
+    return html `
       <style>
         input:checked + svg {
           display: block;

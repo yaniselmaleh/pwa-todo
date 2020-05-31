@@ -4,59 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ma Todo App 🤘🏻</title>
-  <meta name="description" content="My awesome todo 🚀">
-  <base href="/" data-base="My awesome todo 🚀">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <base href="/" data-base="Todo App">
+  <meta name="author" content="Yanis Elmaleh">
+  <meta name="language" content="fr">
+  <meta name="description" content="Todo App">
+  <meta name="robots" content="index,follow">
+  <meta name="keywords" content="" xml:lang="fr">
+  <!-- <link rel="canonical" href=""> -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Todo App">
+  <meta property="og:description" content="Todo App">
+  <meta property="og:url" content="https://yaniselmaleh.fr">
+  <meta property="og:site_name" content="Todo App">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui">
 
   <link rel="stylesheet" href="./assets/styles/tailwind.css">
   <link rel="stylesheet" href="./assets/styles/style.css">
   <link rel="stylesheet" href="./assets/styles/reset.css">
 
-  <style>
-    
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', async () => {
+          let refreshing = false;
+          // return false;
+          navigator.serviceWorker.register('/service-worker.js', {
+              scrope: '/'
+          }).then(registration => {
+              setInterval(() => {
+                  console.log('Checking for new service workder');
+                  registration.update();
+              }, 10 * 1000);
 
-  </style>
-  <script>
-    // if ('serviceWorker' in navigator) {
-    //   window.addEventListener('load', async () => {
-    //     let refreshing = false;
-    //     // return false;
-    //     navigator.serviceWorker.register('/service-worker.js', {
-    //       scrope: '/'
-    //     }).then(registration => {
-    //       setInterval(() => {
-    //         console.log('Checking for new service workder');
-    //         registration.update();
-    //       }, 10*1000);
+              if (registration.waiting && navigator.serviceWorker.controller) {
+                  document.newWorker = registration.waiting;
+                  const response = confirm('A new version of your application is awaiable, would you like to update ?');
+                  if (response) document.newWorker.postMessage({
+                      type: 'SKIP_WAITING'
+                  });
+              }
 
-    //       if (registration.waiting && navigator.serviceWorker.controller) {
-    //         document.newWorker = registration.waiting;
-    //         const response = confirm('A new version of your application is awaiable, would you like to update ?');
-    //         if (response) document.newWorker.postMessage({ type: 'SKIP_WAITING' });
-    //       }
+              registration.addEventListener('updatefound', () => {
+                  console.log('Service Worker update detected!');
+                  document.newWorker = registration.installing;
 
-    //       registration.addEventListener('updatefound', () => {
-    //         console.log('Service Worker update detected!');
-    //         document.newWorker = registration.installing;
+                  document.newWorker.addEventListener('statechange', () => {
+                      if (document.newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                          const response = confirm('A new version of your application is awaiable, would you like to update ?');
+                          if (response) document.newWorker.postMessage({
+                              type: 'SKIP_WAITING'
+                          });
+                      }
+                  })
+              });
 
-    //         document.newWorker.addEventListener('statechange', () => {
-    //           if (document.newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-    //             const response = confirm('A new version of your application is awaiable, would you like to update ?');
-    //             if (response) document.newWorker.postMessage({ type: 'SKIP_WAITING' });
-    //           }
-    //         })
-    //       });
-
-    //       navigator.serviceWorker.addEventListener('controllerchange', () => {
-    //         if (refreshing) return;
-    //         window.location.reload();
-    //         refreshing = true;
-    //       });
-    //     });
-    //   });
-    // } else {
-    //   console.log("Sorry you browser doesn't support service worker");
-    // }
+              navigator.serviceWorker.addEventListener('controllerchange', () => {
+                  if (refreshing) return;
+                  window.location.reload();
+                  refreshing = true;
+              });
+          });
+      });
+  } else {
+      console.log("Sorry you browser doesn't support service worker");
+  }
   </script>
 </head>
 <body class="bg-gray-100">

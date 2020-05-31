@@ -1,4 +1,6 @@
-import { openDB } from 'idb';
+import {
+  openDB
+} from 'idb';
 
 export async function initDB() {
   const config = window.config;

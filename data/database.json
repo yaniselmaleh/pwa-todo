@@ -1,15 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 1590937130507,
-      "title": "Titre incroyable",
-      "description": "Description incroyable",
-      "state": "true",
-      "synced": "true",
-      "updated": "false",
-      "done": "false",
-      "deleted": "false",
-      "date": 1590937130507
-    }
-  ]
+  "todos": []
 }
